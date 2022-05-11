@@ -11,8 +11,10 @@ El siguiente paso es abrir el dashboard y crear un nuevo script y copiar el cont
 
 [Crea tus propios scripts con Tampermonkey](https://medium.com/@maniakhitoccori/crea-tus-propios-scripts-con-tampermonkey-b397cfbf10ab)
 
-Una vez tengamos el script copiado, el siguiente paso es obtener una API Key para poder hacer uso del servicio de la base de datos, para guardar los usuarios a ignorar. Para ello escribir un mensaje privado al usuario **MoinMoin** y se responderá con una clave que se debe cambiar por el texto "REPLACE_API_KEY". [Perfil de MoinMoin](https://forocoches.com/foro/member.php?u=722356)
+Una vez tengamos el script copiado, el siguiente paso es obtener una API Key para poder hacer uso del servicio de la base de datos, para guardar los usuarios a ignorar. Para ello escribir un email a info@rbedev.com y se responderá con una clave que se debe cambiar por el texto "REPLACE_API_KEY".
 
-Para mas dudas, contactar por Forocoches.
+Para probar, he habilitado la API Key de pruebas: 'eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ'.
+
+Para mas dudas, contactar por email.
 
 A hug strong.
