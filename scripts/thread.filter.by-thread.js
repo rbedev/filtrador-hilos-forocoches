@@ -6,7 +6,7 @@
 // @icon         https://forocoches.com/favicon-32x32.png
 // @grant        none
 // @require      https://code.jquery.com/jquery-latest.js
-// @run-at       document-end
+// @run-at       document-start
 // @version      1.0
 // ==/UserScript==
 
@@ -21,17 +21,37 @@ const words = ['Texto a filtrar para no mostrar', 'Langostas', 'Cunetas', 'dos v
 // Se rellena en el método getThreadIds().
 let threadIds = [];
 
+// Usuarios a filtrar. En este array estarán aquellos usuarios que están en tu lista de ignorados
+// Por ejemplo, los que crear hilos de las pajas y vasos de agua, trolls a sueldo de IOS y que reparten pizzas etc...
+// Se rellena en el método getUserIds().
+let userIds = [];
+
 // Cuando el documento está listo, se realizan las acciones
 $(document).ready(function () {
   // Obtiene IDs de los hilos ocultados mediante el botón, usando su ID y no el título.
   getThreadIds();
 
-  // Obtiene todos los <a> con HREF a "showthread.php" y que tienen title.
-  const aElements = document.querySelectorAll('a[href*="showthread.php"][title]');
+  // Obtiene IDs de los usuarios ignorados
+  getUserIds();
 
-  // Bucle que recorre todos los elementos encontrados
-  for (let a of aElements) {
+  // Obtiene todos los <a> con HREF a "showthread.php".
+  const aElementsThreads = document.querySelectorAll('a[href*="showthread.php"][title]');
+
+  // Bucle que recorre todos los elementos encontrados de hilos
+  for (let a of aElementsThreads) {
     checkATag(a);
+  }
+
+  const aElementsUsers = document.querySelectorAll('span[onclick*="member.php?u="]');
+  // Bucle que recorre todos los elementos encontrados de usuarios
+  const regex = /u=\d*/gm;
+  for (let a of aElementsUsers) {
+    const result = regex.exec(a.outerHTML);
+    if (result) {
+      if (userIds.includes(result[0].replace('u=', '').trim())) {
+        hideA(a);
+      }
+    }
   }
 
   /**
